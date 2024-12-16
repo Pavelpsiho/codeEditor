@@ -1,20 +1,14 @@
-import { createServer } from 'miragejs';
+import { createServer, Model } from 'miragejs';
+import { executeCode } from './handlers.ts';
 
 export function makeServer() {
   createServer({
     routes() {
-      this.post('/api/execute', (schema, request) => {
-        const { language, code } = JSON.parse(request.requestBody);
-        if (code.includes('error')) {
-          return {
-            status: 'error',
-            error: `Syntax error in ${language}: an unexpected sign.`,
-          };
-        }
-        return {
-          status: 'success',
-          output: `The code ran successfully: ${code}`,
-        };
+      this.namespace = 'api';
+
+      this.post('/execute', (schema, request) => {
+        const requestBody = JSON.parse(request.requestBody);
+        return executeCode(requestBody);
       });
     },
   });

@@ -6,8 +6,6 @@ import reportWebVitals from './reportWebVitals.ts';
 import { makeServer } from './mock/server.ts';
 import 'typeface-roboto';
 
-
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
