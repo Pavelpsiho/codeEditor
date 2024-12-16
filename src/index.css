@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  background-color: #1e1e1e;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+
+ul {
+  padding: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  background-color: #1e1e1e;
+  gap: 10px;
+}
+
+
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  background-color: #262626;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.code-editor {
+  background-color: #1e1e1e; 
+  padding-top: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.task-container,
+.editor-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: #262626;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+}
+
+.task-container {
+  flex: 0.5;
+}
+
+.editor-container {
+  flex: 0.5;
+}
+
+
+.top-controls {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.top-controls select {
+  padding: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.bottom-controls {
+  text-align: end;
+  margin-top: 16px;
+}
+
+pre {
+  background-color: #262626;
+  padding: 15px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #dcdcdc;
+  overflow-x: auto;
+}
+
+.output {
+  display: grid;
+  margin-top: 20px;
+  background: #262626;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  max-height: 321px;
+  overflow-y: auto;
+  overflow-x: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+.output pre {
+  color: #dcdcdc;
+  white-space: pre-wrap;
+}
+
+.language-selector {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.language-selector:hover {
+  background-color: #555;
+}
+
+.language-selector:focus {
+  background-color: #333;
+  outline: 1px solid #47cf73;
+}
+
+
+
+.task {
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.task h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.task p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+.task-description {
+  font-size: 14px;
+  color: #dcdcdc;
+  line-height: 1.6;
+  white-space: pre-line;
+  font-weight: 400;
+}
+
+.task-description b {
+  color: #47cf73;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.task-description i {
+  color: #75beff;
+  font-style: italic;
+}
+
+.task-description code {
+  background-color: #353535;
+  padding: 2px 5px;
+  outline: 1px solid #4d4d4e;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  color: #f8f8f2;
+}
+
+.task-description u {
+  text-decoration: underline;
+}
+
+
+/*Таблицы*/
+
+.custom-list {
+  list-style: none;
+  padding: 0;
+}
+
+.custom-list li {
+  margin-bottom: 20px;
+}
+
+.table-container {
+  margin-top: 10px;
+  border: 1px solid #3b3b3b;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #3c3c3c;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #3b3b3b;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #262626; 
+}
+
+/*скролбар*/
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #484d64; 
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252835 ;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .task-container,
+  .editor-container {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .task-container,
+  .editor-container {
+    max-height: 100%;
+  }
+}
